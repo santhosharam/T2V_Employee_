@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  /* White background */
+  --foreground: #000000;
+  /* Black text */
+
+  /* Primary Violet Gradient - Represented as the base solid for simplicity in variables */
+  --primary: #8e31e1;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3f0ff;
+  /* Very light purple for cards/containers */
+  --secondary-foreground: #2f1d58;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f5f3ff;
+  /* The darker side of the primary gradient */
+  --accent-foreground: #000000;
+
+  --card: #ffffff;
+  /* White for cards */
+  --card-foreground: #000000;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #8e31e1;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #100628;
+  /* ThemeForest Dark Navy */
+  --foreground: #ffffff;
+
+  /* Primary Violet Gradient - Represented as the base solid for simplicity in variables */
+  --primary: #8e31e1;
+  --primary-foreground: #ffffff;
+
+  --secondary: #2f1d58;
+  /* Darker purple for cards/containers */
+  --secondary-foreground: #cec6e0;
+
+  --muted: #1e103f;
+  --muted-foreground: #cec6e0;
+
+  --accent: #7300d1;
+  /* The darker side of the primary gradient */
+  --accent-foreground: #ffffff;
+
+  --card: #13072f;
+  /* Slightly lighter navy for cards */
+  --card-foreground: #ffffff;
+
+  --border: #2f1d58;
+  --input: #2f1d58;
+  --ring: #8e31e1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Animations from Aivio Theme */
+
+/* Primary Button Gradient */
+.btn-primary-gradient {
+  background: linear-gradient(to top, #7300d1 0%, #8e31e1 100%);
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(to top, #8e31e1 0%, #7300d1 100%);
+  box-shadow: 0 0 15px rgba(115, 0, 209, 0.5);
+}
+
+/* Glass/Card styles for light theme */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark .glass-card {
+  background: rgba(19, 0, 47, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(142, 49, 225, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(142, 49, 225, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Global Background Pattern - The "Cyber Grid" look - Adapted for Light Mode */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(142, 49, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 49, 225, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark body::before {
+  background-image:
+    linear-gradient(rgba(142, 49, 225, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 49, 225, 0.03) 1px, transparent 1px);
+}
+
+/* Floating Animation for 3D elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Text Gradient Utility - Dark for Light Mode */
+.text-gradient {
+  background: linear-gradient(to right, #2f1d58, #8e31e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(to right, #ffffff, #cec6e0);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(to right, #7300d1, #8e31e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .text-gradient-primary {
+  background: linear-gradient(to right, #a06cd5, #8e31e1);
+}
+
+/* Blob Animation */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
