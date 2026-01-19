@@ -34,6 +34,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+  "files": [
+    "src/main.tsx"
+  ],
   "include": [
     "./src/**/*"
   ]
