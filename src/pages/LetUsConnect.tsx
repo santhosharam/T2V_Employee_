@@ -1,8 +1,103 @@
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, Building2, User, Mail, Phone, Briefcase } from "lucide-react"
+import { CheckCircle2, Building2, User, Mail, Phone, Briefcase, Loader2, AlertCircle } from "lucide-react"
+import Airtable from "airtable"
 
 export default function LetUsConnect() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        jobTitle: "",
+        phone: "",
+        employees: "",
+        challenge: ""
+    })
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target
+        setFormData(prev => ({ ...prev, [name]: value }))
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setIsLoading(true)
+        setError(null)
+
+        const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY
+        const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID
+
+        if (!apiKey || !baseId) {
+            setError("Configuration Error: Airtable credentials missing.")
+            setIsLoading(false)
+            return
+        }
+
+        const base = new Airtable({ apiKey: apiKey }).base(baseId)
+
+        try {
+            await base('Leads').create([
+                {
+                    fields: {
+                        "First Name": formData.firstName,
+                        "Last Name": formData.lastName,
+                        "Work Email": formData.email,
+                        "Company Name": formData.company,
+                        "Job Title": formData.jobTitle,
+                        "Phone Number": formData.phone,
+                        "Company Size": formData.employees,
+                        "Challenge": formData.challenge,
+                        "Status": "New"
+                    }
+                }
+            ])
+
+            setIsSuccess(true)
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                company: "",
+                jobTitle: "",
+                phone: "",
+                employees: "",
+                challenge: ""
+            })
+        } catch (err: any) {
+            console.error(err)
+            setError(err.message || "Something went wrong. Please try again.")
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    if (isSuccess) {
+        return (
+            <div className="pt-24 pb-16 min-h-screen bg-slate-50 flex items-center justify-center">
+                <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 max-w-lg text-center space-y-6">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto text-green-600">
+                        <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900">Thank You!</h2>
+                    <p className="text-gray-600 text-lg">
+                        We've received your request. One of our specialist team members will review your details and reach out shortly.
+                    </p>
+                    <Button
+                        onClick={() => setIsSuccess(false)}
+                        className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+                    >
+                        Submit Another Request
+                    </Button>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="pt-24 pb-16 min-h-screen bg-slate-50">
             <div className="container mx-auto px-4">
@@ -53,19 +148,40 @@ export default function LetUsConnect() {
 
                         <h2 className="text-2xl font-bold mb-6 text-gray-900">Let's Connect</h2>
 
-                        <form className="space-y-5">
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                            {error && (
+                                <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm flex items-center gap-2">
+                                    <AlertCircle className="w-4 h-4" />
+                                    {error}
+                                </div>
+                            )}
+
                             <div className="grid grid-cols-2 gap-5">
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                         <User className="w-4 h-4 text-gray-400" /> First Name <span className="text-red-500">*</span>
                                     </label>
-                                    <input required className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="Jane" />
+                                    <input
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleChange}
+                                        required
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                        placeholder="Jane"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                         <User className="w-4 h-4 text-gray-400" /> Last Name <span className="text-red-500">*</span>
                                     </label>
-                                    <input required className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="Doe" />
+                                    <input
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
+                                        required
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                        placeholder="Doe"
+                                    />
                                 </div>
                             </div>
 
@@ -73,7 +189,15 @@ export default function LetUsConnect() {
                                 <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                     <Mail className="w-4 h-4 text-gray-400" /> Work Email <span className="text-red-500">*</span>
                                 </label>
-                                <input required type="email" className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="jane.doe@company.com" />
+                                <input
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    type="email"
+                                    className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                    placeholder="jane.doe@company.com"
+                                />
                             </div>
 
                             <div className="grid grid-cols-2 gap-5">
@@ -81,13 +205,27 @@ export default function LetUsConnect() {
                                     <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                         <Building2 className="w-4 h-4 text-gray-400" /> Company Name <span className="text-red-500">*</span>
                                     </label>
-                                    <input required className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="Acme Inc." />
+                                    <input
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        required
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                        placeholder="Acme Inc."
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                         <Briefcase className="w-4 h-4 text-gray-400" /> Job Title <span className="text-red-500">*</span>
                                     </label>
-                                    <input required className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="CHRO / HR Manager" />
+                                    <input
+                                        name="jobTitle"
+                                        value={formData.jobTitle}
+                                        onChange={handleChange}
+                                        required
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                        placeholder="CHRO / HR Manager"
+                                    />
                                 </div>
                             </div>
 
@@ -96,12 +234,23 @@ export default function LetUsConnect() {
                                     <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                                         <Phone className="w-4 h-4 text-gray-400" /> Phone Number
                                     </label>
-                                    <input className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all" placeholder="+1 (555) 000-0000" />
+                                    <input
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                        placeholder="+1 (555) 000-0000"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700">Company Size</label>
-                                    <select className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all">
-                                        <option value="" disabled selected>Select employees</option>
+                                    <select
+                                        name="employees"
+                                        value={formData.employees}
+                                        onChange={handleChange}
+                                        className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                    >
+                                        <option value="" disabled>Select employees</option>
                                         <option value="1-50">1 - 50</option>
                                         <option value="51-200">51 - 200</option>
                                         <option value="201-1000">201 - 1,000</option>
@@ -112,8 +261,13 @@ export default function LetUsConnect() {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-gray-700">Primary Challenge / Interest</label>
-                                <select className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all">
-                                    <option value="" disabled selected>What can we help you with?</option>
+                                <select
+                                    name="challenge"
+                                    value={formData.challenge}
+                                    onChange={handleChange}
+                                    className="flex h-11 w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus:bg-white transition-all"
+                                >
+                                    <option value="" disabled>What can we help you with?</option>
                                     <option value="recruitment">Recruitment Intelligence</option>
                                     <option value="compliance">Compliance & Legal Risk</option>
                                     <option value="data-unification">Data Unification (CoreAI)</option>
@@ -123,8 +277,13 @@ export default function LetUsConnect() {
                             </div>
 
                             <div className="pt-4">
-                                <Button size="lg" className="w-full h-12 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg shadow-lg shadow-purple-200">
-                                    Connect with our Team
+                                <Button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    size="lg"
+                                    className="w-full h-12 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg shadow-lg shadow-purple-200"
+                                >
+                                    {isLoading ? <><Loader2 className="w-5 h-5 animate-spin mr-2" /> Sending...</> : "Connect with our Team"}
                                 </Button>
                             </div>
 
