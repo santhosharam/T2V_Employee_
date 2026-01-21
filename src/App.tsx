@@ -1,7 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { ContentProtection } from "@/components/ContentProtection";
 import { Suspense, lazy } from "react";
 import { Loader2 } from "lucide-react";
 
@@ -29,7 +28,6 @@ const PageLoader = () => (
 export default function App() {
   return (
     <BrowserRouter>
-      <ContentProtection />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route element={<Layout />}>
