@@ -3,6 +3,8 @@ import { ArrowRight, type LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import VerticalModuleTabs from "@/components/ui/verticaltab"
+import { StatCard } from "@/components/ui/stat-card"
+import { CapabilityCard } from "@/components/ui/capability-card"
 
 interface Stat {
     value: string
@@ -61,114 +63,90 @@ export function PlatformModuleSection({
     variant = "default"
 }: PlatformModuleSectionProps) {
 
-    // Background styling - now consistent across all variants
+    // Background styling
     const getContainerStyles = () => {
         return "bg-white shadow-lg border-gray-100";
     }
 
-    // Stats Layout - now consistent across all variants
+    // Stats Layout
     const renderStats = () => {
         const gridClass = stats.length >= 4 ? "grid md:grid-cols-2 lg:grid-cols-4" : "grid md:grid-cols-3"
 
         return (
             <div className={`${gridClass} gap-6 mb-10`}>
                 {stats.map((stat, index) => (
-                    <div
+                    <StatCard
                         key={index}
-                        className="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all"
-                    >
-                        <div className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
-                            {stat.value}
-                        </div>
-                        <div className="text-lg font-semibold text-gray-800 mb-3">
-                            {stat.label}
-                        </div>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                            {stat.explanation}
-                        </p>
-                    </div>
+                        value={stat.value}
+                        label={stat.label}
+                        explanation={stat.explanation}
+                    />
                 ))}
             </div>
         )
     }
 
     // Capabilities Layout
-    // Capabilities Layout - different layouts per variant with consistent backgrounds
     const renderCapabilities = () => {
         if (variant === "compact") {
-            // Compact: 2-column list with icons
             return (
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     {capabilities.map((cap, index) => (
-                        <div key={index} className="flex gap-4 items-start group">
-                            <div className="mt-1 p-2 rounded-lg bg-white border border-slate-200 text-gray-700 group-hover:bg-gray-700 group-hover:text-white transition-colors">
-                                <cap.icon className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">{cap.title}</h4>
-                                <p className="text-sm text-gray-600 leading-relaxed">{cap.desc}</p>
-                            </div>
-                        </div>
+                        <CapabilityCard
+                            key={index}
+                            title={cap.title}
+                            desc={cap.desc}
+                            icon={cap.icon}
+                            variant="compact"
+                        />
                     ))}
                 </div>
             )
         }
 
         if (variant === "wide") {
-            // Wide: Horizontal feature strips
             return (
                 <div className="space-y-4">
                     {capabilities.map((cap, index) => (
-                        <div key={index} className="flex items-center gap-6 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all hover:bg-white hover:shadow-md">
-                            <div className="p-3 bg-white rounded-full shadow-sm text-gray-700 border border-slate-200">
-                                <cap.icon className="w-6 h-6" />
-                            </div>
-                            <div className="flex-1 md:flex md:items-center md:justify-between">
-                                <h4 className="text-lg font-bold text-gray-900 mr-4">{cap.title}</h4>
-                                <p className="text-sm text-gray-600">{cap.desc}</p>
-                            </div>
-                            <div className="hidden md:block">
-                                <ArrowRight className="w-4 h-4 text-gray-300" />
-                            </div>
-                        </div>
+                        <CapabilityCard
+                            key={index}
+                            title={cap.title}
+                            desc={cap.desc}
+                            icon={cap.icon}
+                            variant="wide"
+                        />
                     ))}
                 </div>
             )
         }
 
         if (variant === "stacked") {
-            // Stacked: Compact grid cards
             return (
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {capabilities.map((cap, index) => (
-                        <div key={index} className="p-5 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-white transition-all">
-                            <cap.icon className="w-8 h-8 text-gray-700 mb-4" />
-                            <h4 className="text-base font-bold text-gray-900 mb-2">{cap.title}</h4>
-                            <p className="text-xs text-gray-600">{cap.desc}</p>
-                        </div>
+                        <CapabilityCard
+                            key={index}
+                            title={cap.title}
+                            desc={cap.desc}
+                            icon={cap.icon}
+                            variant="stacked"
+                        />
                     ))}
                 </div>
             )
         }
 
-        // Default: Standard Cards (4-column grid)
+        // Default
         return (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {capabilities.map((capability, index) => (
-                    <div
+                {capabilities.map((cap, index) => (
+                    <CapabilityCard
                         key={index}
-                        className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md hover:-translate-y-1 transition-all group"
-                    >
-                        <div className="h-12 w-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-gray-700 mb-4 group-hover:scale-110 transition-transform">
-                            <capability.icon className="w-6 h-6" />
-                        </div>
-                        <h4 className="text-lg font-bold text-gray-900 mb-3">
-                            {capability.title}
-                        </h4>
-                        <p className="text-sm text-gray-500 leading-relaxed">
-                            {capability.desc}
-                        </p>
-                    </div>
+                        title={cap.title}
+                        desc={cap.desc}
+                        icon={cap.icon}
+                        variant="default"
+                    />
                 ))}
             </div>
         )
@@ -185,8 +163,6 @@ export function PlatformModuleSection({
             <div className="container mx-auto max-w-7xl">
 
                 <div className={`relative rounded-[2.5rem] p-6 md:p-10 overflow-hidden border border-gray-100 ${getContainerStyles()}`}>
-
-                    {/* Background decorations - removed for consistency */}
 
                     {/* Panel 1: Header */}
                     <div className={`flex gap-6 mb-10 relative z-10 ${getTitleAlignment()}`}>
@@ -223,7 +199,7 @@ export function PlatformModuleSection({
                         <VerticalModuleTabs data={moduleData} variant={variant} />
                     </div>
 
-                    {/* Panel 5: CTA - now consistent across all variants */}
+                    {/* Panel 5: CTA */}
                     <div className="text-center py-10 border-t border-gray-200 bg-slate-50 rounded-2xl">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">{ctaHeadline}</h3>
                         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
@@ -240,7 +216,6 @@ export function PlatformModuleSection({
                             )}
                         </div>
                     </div>
-
 
                 </div>
             </div>

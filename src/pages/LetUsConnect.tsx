@@ -32,6 +32,9 @@ export default function LetUsConnect() {
         const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY
         const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID
 
+        console.log("Debug - API Key exists?", !!apiKey, "First char:", apiKey?.charAt(0));
+        console.log("Debug - Base ID exists?", !!baseId, "First char:", baseId?.charAt(0));
+
         if (!apiKey || !baseId) {
             setError("Configuration Error: Airtable credentials missing.")
             setIsLoading(false)
