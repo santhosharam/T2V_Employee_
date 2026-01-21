@@ -198,7 +198,7 @@ const PrivacyPolicy = () => {
                             </p>
                             <div className="space-y-2 text-foreground">
                                 <p><strong>Email:</strong> <a href="mailto:compliance@trustgrid.com" className="text-primary hover:underline">compliance@trustgrid.com</a></p>
-                                <p><strong>Address:</strong> [Insert Registered Office Address], Tech Park, Silicon Valley, CA</p>
+                                <p><strong>Address:</strong> WeWork, 13th floor, Tin Factory, Salarpuria Magnificia, Old Madras Rd, Bengaluru, Karnataka 560016</p>
                             </div>
                         </div>
                     </div>
