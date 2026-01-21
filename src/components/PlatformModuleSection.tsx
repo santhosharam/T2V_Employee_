@@ -73,7 +73,7 @@ export function PlatformModuleSection({
         const gridClass = stats.length >= 4 ? "grid md:grid-cols-2 lg:grid-cols-4" : "grid md:grid-cols-3"
 
         return (
-            <div className={`${gridClass} gap-6 mb-10`}>
+            <div className={`${gridClass} gap-6 mb-6`}>
                 {stats.map((stat, index) => (
                     <StatCard
                         key={index}
@@ -159,13 +159,13 @@ export function PlatformModuleSection({
     }
 
     return (
-        <section id={id} className="py-6 px-4 bg-transparent">
+        <section id={id} className="py-4 px-4 bg-transparent">
             <div className="container mx-auto max-w-7xl">
 
-                <div className={`relative rounded-[2.5rem] p-6 md:p-10 overflow-hidden border border-gray-100 ${getContainerStyles()}`}>
+                <div className={`relative rounded-[1.5rem] p-4 md:p-8 overflow-hidden border border-gray-100 ${getContainerStyles()}`}>
 
                     {/* Panel 1: Header */}
-                    <div className={`flex gap-6 mb-10 relative z-10 ${getTitleAlignment()}`}>
+                    <div className={`flex gap-6 mb-4 relative z-10 ${getTitleAlignment()}`}>
                         <div className={`max-w-3xl ${variant === 'stacked' ? 'mx-auto text-center' : ''}`}>
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 bg-gray-100 text-gray-600">
                                 <BadgeIcon className="w-3 h-3" />
@@ -187,7 +187,7 @@ export function PlatformModuleSection({
                     {renderStats()}
 
                     {/* Panel 3: Capabilities */}
-                    <div className="mb-10">
+                    <div className="mb-6">
                         <h3 className="text-xl font-bold mb-8 uppercase tracking-widest text-center text-gray-400">
                             Core Capabilities
                         </h3>
@@ -195,12 +195,12 @@ export function PlatformModuleSection({
                     </div>
 
                     {/* Panel 4: Vertical Tabs (Deep Dive) */}
-                    <div className="mb-10">
+                    <div className="mb-6">
                         <VerticalModuleTabs data={moduleData} variant={variant} />
                     </div>
 
                     {/* Panel 5: CTA */}
-                    <div className="text-center py-10 border-t border-gray-200 bg-slate-50 rounded-2xl">
+                    <div className="text-center py-6 border-t border-gray-200 bg-slate-50 rounded-2xl">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">{ctaHeadline}</h3>
                         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
