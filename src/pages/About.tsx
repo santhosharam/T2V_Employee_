@@ -9,7 +9,7 @@ export default function About() {
             {/* Hero Section */}
             <div className="container mx-auto px-4 mb-20 text-center">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-                    We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">T2V Employee.</span>
+                    We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">TrustGrid Employee.</span>
                 </h1>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                     Our mission is to empower every organization with the intelligence to unlock the full potential of their workforce.

@@ -9,7 +9,7 @@ export default function RequestDemo() {
                     {/* Left Content */}
                     <div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-                            See T2V Employee in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Action.</span>
+                            See TrustGrid Employee in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Action.</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 max-w-lg">
                             Schedule a personalized demo to see how our AI-native platform can transform your workforce operations.

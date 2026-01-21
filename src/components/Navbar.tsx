@@ -13,7 +13,7 @@ export function Navbar() {
                 <Link to="/" className="flex items-center gap-2">
                     {/* Placeholder Logo Text */}
                     <span className="text-2xl font-bold tracking-tight text-primary">
-                        T2V
+                        TrustGrid
                     </span>
                 </Link>
                 <div className="hidden lg:flex items-center gap-8">
