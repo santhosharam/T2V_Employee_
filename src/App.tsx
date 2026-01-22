@@ -17,6 +17,7 @@ const OutcomesROI = lazy(() => import("@/pages/OutcomesROI"));
 const Placeholder = lazy(() => import("@/pages/Placeholder"));
 const LetUsConnect = lazy(() => import("@/pages/LetUsConnect"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const WhoItsFor = lazy(() => import("@/pages/WhoItsFor"));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/let-us-connect" element={<LetUsConnect />} />
             <Route path="/outcomes-roi" element={<OutcomesROI />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/who-its-for" element={<WhoItsFor />} />
             <Route path="*" element={<Placeholder title="404 - Page Not Found" />} />
           </Route>
         </Routes>
