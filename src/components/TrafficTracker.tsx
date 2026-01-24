@@ -1,11 +1,11 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { submitToAirtable } from '@/lib/airtable';
 
 export function TrafficTracker() {
     const location = useLocation();
-    const initialized = useRef(false);
+
 
     useEffect(() => {
         const trackPageView = async () => {
