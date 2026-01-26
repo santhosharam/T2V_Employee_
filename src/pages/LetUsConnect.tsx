@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { CheckCircle2, Building2, User, Mail, Phone, Briefcase, Loader2, AlertCircle } from "lucide-react"
-import Airtable from "airtable"
+import { submitToAirtable } from "@/lib/airtable"
 
 export default function LetUsConnect() {
     const [isLoading, setIsLoading] = useState(false)
@@ -29,36 +29,18 @@ export default function LetUsConnect() {
         setIsLoading(true)
         setError(null)
 
-        const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY
-        const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID
-
-        console.log("Debug - API Key exists?", !!apiKey, "First char:", apiKey?.charAt(0));
-        console.log("Debug - Base ID exists?", !!baseId, "First char:", baseId?.charAt(0));
-
-        if (!apiKey || !baseId) {
-            setError("Configuration Error: Airtable credentials missing.")
-            setIsLoading(false)
-            return
-        }
-
-        const base = new Airtable({ apiKey: apiKey }).base(baseId)
-
         try {
-            await base(import.meta.env.VITE_AIRTABLE_TABLE_LEADS).create([
-                {
-                    fields: {
-                        "First Name": formData.firstName,
-                        "Last Name": formData.lastName,
-                        "Work Email": formData.email,
-                        "Company Name": formData.company,
-                        "Job Title": formData.jobTitle,
-                        "Phone Number": formData.phone,
-                        "Company Size": formData.employees,
-                        "Challenge": formData.challenge,
-                        "Status": "New"
-                    }
-                }
-            ])
+            await submitToAirtable(import.meta.env.VITE_AIRTABLE_TABLE_LEADS, {
+                "First Name": formData.firstName,
+                "Last Name": formData.lastName,
+                "Work Email": formData.email,
+                "Company Name": formData.company,
+                "Job Title": formData.jobTitle,
+                "Phone Number": formData.phone,
+                "Company Size": formData.employees,
+                "Challenge": formData.challenge,
+                "Status": "New"
+            });
 
             setIsSuccess(true)
             setFormData({
