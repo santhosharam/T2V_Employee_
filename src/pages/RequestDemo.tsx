@@ -29,7 +29,7 @@ export default function RequestDemo() {
         setError(null)
 
         try {
-            await submitToAirtable('Demo Requests', {
+            await submitToAirtable(import.meta.env.VITE_AIRTABLE_TABLE_DEMO, {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Business Email": formData.email,

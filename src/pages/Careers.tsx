@@ -131,7 +131,7 @@ const Careers = () => {
             // Import dynamically to avoid top-level failures if file issues exist
             const { submitToAirtable } = await import('@/lib/airtable');
 
-            await submitToAirtable('Job Applications', {
+            await submitToAirtable(import.meta.env.VITE_AIRTABLE_TABLE_CAREERS, {
                 "Full Name": formData.fullName,
                 "Email Address": formData.email,
                 "Phone Number": formData.phone,

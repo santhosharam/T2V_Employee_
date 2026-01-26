@@ -103,7 +103,7 @@ export const BecomePartnerForm = () => {
             // Import dynamically
             const { submitToAirtable } = await import('@/lib/airtable');
 
-            await submitToAirtable('Partnership Inquiries', {
+            await submitToAirtable(import.meta.env.VITE_AIRTABLE_TABLE_PARTNERS, {
                 "Company Name": formData.companyName,
                 "Website": formData.website,
                 "Contact Name": formData.contactName,

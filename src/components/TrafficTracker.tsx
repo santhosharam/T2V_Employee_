@@ -45,7 +45,7 @@ export function TrafficTracker() {
                 // Our modified submitToAirtable ALREADY adds IP and "Client Timestamp".
                 // We just need to pass the rest.
 
-                await submitToAirtable('Traffic Analysis', {
+                await submitToAirtable(import.meta.env.VITE_AIRTABLE_TABLE_TRAFFIC, {
                     "Visitor ID": visitorId,
                     "Page URL": currentUrl,
                     "Page Path": path,

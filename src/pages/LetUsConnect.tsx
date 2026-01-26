@@ -44,7 +44,7 @@ export default function LetUsConnect() {
         const base = new Airtable({ apiKey: apiKey }).base(baseId)
 
         try {
-            await base('Leads').create([
+            await base(import.meta.env.VITE_AIRTABLE_TABLE_LEADS).create([
                 {
                     fields: {
                         "First Name": formData.firstName,
