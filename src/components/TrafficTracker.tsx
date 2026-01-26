@@ -6,7 +6,6 @@ import { submitToAirtable } from '@/lib/airtable';
 export function TrafficTracker() {
     const location = useLocation();
 
-
     useEffect(() => {
         const trackPageView = async () => {
             // 1. Visitor ID (Persistent)
