@@ -1,5 +1,6 @@
 import { PlatformModuleSection } from "@/components/PlatformModuleSection"
 import { partnersPageData } from "@/lib/partners-content"
+import { BecomePartnerForm } from "@/components/BecomePartnerForm"
 
 export default function Partners() {
     return (
@@ -20,6 +21,10 @@ export default function Partners() {
                         {...partner}
                     />
                 ))}
+
+                <div className="container mx-auto px-4 max-w-5xl">
+                    <BecomePartnerForm />
+                </div>
             </div>
         </div>
     )

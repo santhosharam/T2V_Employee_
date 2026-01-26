@@ -8,13 +8,13 @@ export function Footer() {
                 <div className="grid md:grid-cols-4 gap-8 mb-12">
                     <div className="col-span-1 md:col-span-2">
                         <span className="text-2xl font-bold tracking-tight text-foreground mb-4 block">
-                            T2V
+                            TrustGrid
                         </span>
                         <p className="max-w-xs text-sm leading-relaxed mb-6 opacity-60">
                             The AI-native workforce & human capital intelligence platform for modern enterprises.
                         </p>
                         <div className="text-sm opacity-60 mb-6">
-                            <p>info(at)t2v.com</p>
+                            <p>info(at)trustgrid.com</p>
                         </div>
                         <div className="grid sm:grid-cols-2 gap-8 text-sm opacity-70 mt-8">
                             <div>
@@ -57,7 +57,7 @@ export function Footer() {
                         <h4 className="font-semibold text-foreground mb-4">Company</h4>
                         <ul className="space-y-2 text-sm">
                             <li><Link to="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link to="#" className="hover:text-primary transition-colors">Careers</Link></li>
+                            <li><Link to="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
                             <li><Link to="#" className="hover:text-primary transition-colors">Contact</Link></li>
                             <li><Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
                         </ul>
@@ -65,7 +65,7 @@ export function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-border text-center text-sm opacity-40">
-                    &copy; {new Date().getFullYear()} T2V. All rights reserved.
+                    &copy; {new Date().getFullYear()} TrustGrid. All rights reserved.
                 </div>
             </div>
         </footer>

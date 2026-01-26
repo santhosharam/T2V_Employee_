@@ -29,15 +29,15 @@ const PrivacyPolicy = () => {
                         <div>
                             <h2 className="text-2xl font-bold text-foreground mb-4">1. Overview & Scope</h2>
                             <p className="text-foreground/80 leading-relaxed mb-4">
-                                At T2V / T2V-Employee ("we," "our," or "us"), we are committed to protecting your privacy and ensuring the security of your data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access our enterprise SaaS platform and related services.
+                                At TrustGrid ("we," "our," or "us"), we are committed to protecting your privacy and ensuring the security of your data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access our enterprise SaaS platform and related services.
                             </p>
                             <p className="text-foreground/80 leading-relaxed mb-4">
-                                This policy applies to all users of the T2V-Employee platform, including enterprise clients, their employees, and administrative users. By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Privacy Policy.
+                                This policy applies to all users of the TrustGrid Employee platform, including enterprise clients, their employees, and administrative users. By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Privacy Policy.
                             </p>
                             <div className="bg-secondary/10 p-6 rounded-lg border border-secondary/20 mt-6">
                                 <h3 className="font-semibold text-foreground mb-2">Data Controller vs. Data Processor</h3>
                                 <p className="text-sm text-foreground/80 leading-relaxed">
-                                    For the data you provide to us as an enterprise customer for processing (such as employee records), T2V acts as the <strong>Data Processor</strong>. You, the enterprise client, are the <strong>Data Controller</strong>. We process this data solely on your instructions and in accordance with our Data Processing Agreement (DPA). For account registration and billing information where we determine the purpose and means of processing, T2V acts as the <strong>Data Controller</strong>.
+                                    For the data you provide to us as an enterprise customer for processing (such as employee records), TrustGrid acts as the <strong>Data Processor</strong>. You, the enterprise client, are the <strong>Data Controller</strong>. We process this data solely on your instructions and in accordance with our Data Processing Agreement (DPA). For account registration and billing information where we determine the purpose and means of processing, TrustGrid acts as the <strong>Data Controller</strong>.
                                 </p>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
                                         <strong>Personal Information:</strong> Includes names, email addresses, job titles, and contact details provided during account creation or user onboarding.
                                     </li>
                                     <li>
-                                        <strong>Business & Enterprise Data:</strong> Employee performance metrics, workflow logs, and other operational data ingested into the T2V platform for analysis.
+                                        <strong>Business & Enterprise Data:</strong> Employee performance metrics, workflow logs, and other operational data ingested into the TrustGrid platform for analysis.
                                     </li>
                                     <li>
                                         <strong>Non-Personal & Technical Information:</strong> IP addresses, browser types, device information, and usage statistics collected automatically through log files and cookies.
@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="p-4 bg-muted/30 rounded-lg">
                                         <h4 className="font-medium text-foreground mb-2">Service Delivery</h4>
-                                        <p className="text-sm text-foreground/70">To provide, operate, and maintain the T2V-Employee platform and its AI-driven features.</p>
+                                        <p className="text-sm text-foreground/70">To provide, operate, and maintain the TrustGrid Employee platform and its AI-driven features.</p>
                                     </div>
                                     <div className="p-4 bg-muted/30 rounded-lg">
                                         <h4 className="font-medium text-foreground mb-2">Support & Communication</h4>
@@ -188,7 +188,7 @@ const PrivacyPolicy = () => {
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl font-bold text-foreground mb-6">4. Contact & Acceptance</h2>
                         <p className="text-foreground/80 leading-relaxed mb-8">
-                            By using the T2V-Employee platform, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our services. Your continued use of the platform following the posting of changes to this policy will be deemed your acceptance of those changes.
+                            By using the TrustGrid Employee platform, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our services. Your continued use of the platform following the posting of changes to this policy will be deemed your acceptance of those changes.
                         </p>
 
                         <div className="bg-primary/5 border border-primary/10 rounded-xl p-8">
@@ -197,8 +197,8 @@ const PrivacyPolicy = () => {
                                 If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:
                             </p>
                             <div className="space-y-2 text-foreground">
-                                <p><strong>Email:</strong> <a href="mailto:compliance@t2v.ai" className="text-primary hover:underline">compliance@t2v.ai</a></p>
-                                <p><strong>Address:</strong> [Insert Registered Office Address], Tech Park, Silicon Valley, CA</p>
+                                <p><strong>Email:</strong> <a href="mailto:compliance@trustgrid.com" className="text-primary hover:underline">compliance@trustgrid.com</a></p>
+                                <p><strong>Address:</strong> WeWork, 13th floor, Tin Factory, Salarpuria Magnificia, Old Madras Rd, Bengaluru, Karnataka 560016</p>
                             </div>
                         </div>
                     </div>

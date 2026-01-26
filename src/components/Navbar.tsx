@@ -11,10 +11,7 @@ export function Navbar() {
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md shadow-sm">
             <div className="container flex h-20 items-center justify-between mx-auto px-4 lg:px-8">
                 <Link to="/" className="flex items-center gap-2">
-                    {/* Placeholder Logo Text */}
-                    <span className="text-2xl font-bold tracking-tight text-primary">
-                        T2V
-                    </span>
+                    <img src="/trustgrid_logo.png" alt="TrustGrid.AI" className="h-10 w-auto" />
                 </Link>
                 <div className="hidden lg:flex items-center gap-8">
                     <nav className="flex items-center gap-6 text-sm font-medium text-foreground/80">
@@ -115,6 +112,22 @@ export function Navbar() {
                             </div>
                         </div>
 
+
+
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/who-its-for" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Who It's For <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/who-its-for#hr-leaders" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">HR & People Leaders</Link>
+                                    <Link to="/who-its-for#talent-learning" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Talent & Learning</Link>
+                                    <Link to="/who-its-for#compliance-legal" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Compliance & Legal</Link>
+                                    <Link to="/who-its-for#exec-leaders" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Exec & Business Leaders</Link>
+                                    <Link to="/who-its-for#data-teams" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Data & Analytics</Link>
+                                    <Link to="/who-its-for#tech-leaders" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Tech & Platform Leaders</Link>
+                                </div>
+                            </div>
+                        </div>
+
                         <Link to="/outcomes-roi" className="hover:text-primary text-foreground/90 transition-colors">Outcomes & ROI</Link>
                         <Link to="/solutions" className="hover:text-primary text-foreground/90 transition-colors">Solutions</Link>
 
@@ -139,7 +152,7 @@ export function Navbar() {
                 >
                     {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
-            </div>
+            </div >
             {isOpen && (
                 <div className="lg:hidden border-t border-border p-4 space-y-4 bg-background shadow-lg">
                     <nav className="flex flex-col space-y-4">
@@ -147,6 +160,8 @@ export function Navbar() {
                         <Link to="/#recruitment" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>T2V RecruitAI</Link>
                         <Link to="/#compliance" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Compliance & Legal</Link>
                         <Link to="/#knowledge-acceleration" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Learning & Knowledge</Link>
+                        <Link to="/#knowledge-acceleration" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Learning & Knowledge</Link>
+                        <Link to="/who-its-for" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Who It's For</Link>
                         <Link to="/outcomes-roi" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Outcomes & ROI</Link>
                         <Link to="/solutions" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Solutions</Link>
 
@@ -160,7 +175,8 @@ export function Navbar() {
                         </Link>
                     </nav>
                 </div>
-            )}
-        </header>
+            )
+            }
+        </header >
     )
 }
