@@ -28,10 +28,12 @@ const PageLoader = () => (
 );
 
 import { TrafficTracker } from "@/components/TrafficTracker";
+import { ScrollToHash } from "@/components/ScrollToHash";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToHash />
       <TrafficTracker />
       <Suspense fallback={<PageLoader />}>
         <Routes>

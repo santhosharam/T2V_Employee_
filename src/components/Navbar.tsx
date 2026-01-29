@@ -128,18 +128,82 @@ export function Navbar() {
                             </div>
                         </div>
 
-                        <Link to="/outcomes-roi" className="hover:text-primary text-foreground/90 transition-colors">Outcomes & ROI</Link>
-                        <Link to="/solutions" className="hover:text-primary text-foreground/90 transition-colors">Solutions</Link>
 
-                        <Link to="/industries" className="hover:text-primary text-foreground/90 transition-colors">Industries</Link>
-                        <Link to="/partners" className="hover:text-primary text-foreground/90 transition-colors">Partnerships</Link>
-                        <Link to="/resources" className="hover:text-primary text-foreground/90 transition-colors">Resources</Link>
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/outcomes-roi" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Outcomes & ROI <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/outcomes-roi#productivity" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Productivity Impact</Link>
+                                    <Link to="/outcomes-roi#cost-reduction" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Cost Efficiency</Link>
+                                    <Link to="/outcomes-roi#talent-impact" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Talent Outcomes</Link>
+                                    <Link to="/outcomes-roi#risk-compliance" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Risk & Compliance</Link>
+                                    <Link to="/outcomes-roi#financial-justification" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">ROI & Payback</Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/solutions" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Solutions <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/solutions#workforce-intelligence" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Workforce Intelligence</Link>
+                                    <Link to="/solutions#knowledge-acceleration" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Knowledge Acceleration</Link>
+                                    <Link to="/solutions#talent-acquisition" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Talent Acquisition</Link>
+                                    <Link to="/solutions#compliance-risk" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Compliance & Risk</Link>
+                                    <Link to="/solutions#performance-intelligence" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Performance Intelligence</Link>
+                                    <Link to="/solutions#hybrid-workforce" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Hybrid Workforce</Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/industries" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Industries <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/industries#healthcare-life-sciences" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Healthcare & Life Sciences</Link>
+                                    <Link to="/industries#banking-financial-services" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Banking & Finance</Link>
+                                    <Link to="/industries#manufacturing-supply-chain" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Manufacturing</Link>
+                                    <Link to="/industries#technology-software" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Technology & Software</Link>
+                                    <Link to="/industries#retail-consumer-goods" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Retail & Consumer Goods</Link>
+                                    <Link to="/industries#professional-services" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Professional Services</Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/partners" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Partnerships <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/partners#technology-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Technology Partners</Link>
+                                    <Link to="/partners#si-consulting-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">SI & Consulting</Link>
+                                    <Link to="/partners#industry-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Industry Partners</Link>
+                                    <Link to="/partners#compliance-legal-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Compliance & Legal</Link>
+                                    <Link to="/partners#channel-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Channel Partners</Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="group relative cursor-pointer md:py-4">
+                            <Link to="/resources" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Resources <ChevronDown className="h-4 w-4" /></Link>
+                            <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
+                                <div className="space-y-1">
+                                    <Link to="/resources#executive-insights" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Executive Insights</Link>
+                                    <Link to="/resources#platform-resources" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Platform Resources</Link>
+                                    <Link to="/resources#industry-research" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Industry Research</Link>
+                                    <Link to="/resources#compliance-legal" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Compliance & Legal</Link>
+                                    <Link to="/resources#learning-enablement" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Learning & Enablement</Link>
+                                </div>
+                            </div>
+                        </div>
+
                         <Link to="/about" className="hover:text-primary text-foreground/90 transition-colors">About Us</Link>
-                        <Link to="/let-us-connect" className="hover:text-primary text-foreground/90 transition-colors">Let's Connect</Link>
+
                     </nav>
                 </div>
                 <div className="hidden lg:flex items-center gap-4">
-
+                    <Link to="/let-us-connect">
+                        <Button variant="outline" size="sm" className="shadow-sm">Let's Connect</Button>
+                    </Link>
                     <Link to="/request-demo">
                         <Button size="sm" className="btn-primary-gradient text-white shadow-md border-0">Request Demo</Button>
                     </Link>
