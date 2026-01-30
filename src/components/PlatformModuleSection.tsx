@@ -63,17 +63,12 @@ export function PlatformModuleSection({
     variant = "default"
 }: PlatformModuleSectionProps) {
 
-    // Background styling
-    const getContainerStyles = () => {
-        return "bg-white shadow-lg border-gray-100";
-    }
-
     // Stats Layout
     const renderStats = () => {
         const gridClass = stats.length >= 4 ? "grid md:grid-cols-2 lg:grid-cols-4" : "grid md:grid-cols-3"
 
         return (
-            <div className={`${gridClass} gap-6 mb-6`}>
+            <div className={`${gridClass} gap-6`}>
                 {stats.map((stat, index) => (
                     <StatCard
                         key={index}
@@ -90,7 +85,7 @@ export function PlatformModuleSection({
     const renderCapabilities = () => {
         if (variant === "compact") {
             return (
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 bg-slate-50 p-8 rounded-2xl border border-slate-200">
+                <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 p-4">
                     {capabilities.map((cap, index) => (
                         <CapabilityCard
                             key={index}
@@ -157,66 +152,80 @@ export function PlatformModuleSection({
         if (variant === 'wide' || variant === 'compact') return 'text-left md:flex-row md:items-end md:justify-between';
         return 'text-center flex-col items-center';
     }
+    const getSectionStyles = () => {
+        if (variant === 'compact') return 'bg-slate-50 border-y border-slate-200';
+        if (variant === 'stacked') return 'bg-white';
+        return 'bg-transparent';
+    }
 
     return (
-        <section id={id} className="py-4 px-4 bg-transparent">
-            <div className="container mx-auto max-w-7xl">
+        <section id={id} className={`py-20 md:py-32 ${getSectionStyles()}`}>
+            <div className="container mx-auto px-4 max-w-7xl">
 
-                <div className={`relative rounded-[1.5rem] p-4 md:p-8 overflow-hidden border border-gray-100 ${getContainerStyles()}`}>
+                {/* Header - Flowing & Connected */}
+                <div className={`flex flex-col gap-6 mb-16 relative z-10 ${getTitleAlignment()}`}>
+                    <div className={`max-w-3xl ${variant === 'stacked' || variant === 'default' ? 'mx-auto text-center' : ''}`}>
 
-                    {/* Panel 1: Header */}
-                    <div className={`flex gap-6 mb-4 relative z-10 ${getTitleAlignment()}`}>
-                        <div className={`max-w-3xl ${variant === 'stacked' ? 'mx-auto text-center' : ''}`}>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 bg-gray-100 text-gray-600">
-                                <BadgeIcon className="w-3 h-3" />
-                                <span>{badge}</span>
-                            </div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-gray-900">
-                                {title}
-                            </h2>
-                            <p className="text-xl font-medium mb-4 text-purple-600">
-                                {tagline}
-                            </p>
-                            <p className="text-lg leading-relaxed text-gray-500">
-                                {description}
-                            </p>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/50 border border-blue-200 text-blue-700 font-semibold text-xs uppercase tracking-wider mb-6">
+                            <BadgeIcon className="w-3 h-3" />
+                            <span>{badge}</span>
                         </div>
-                    </div>
 
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
+                            {title}
+                        </h2>
+
+                        <p className="text-xl md:text-2xl font-medium mb-6 text-gradient-primary">
+                            {tagline}
+                        </p>
+
+                        <p className="text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
+                            {description}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Content Blocks with generous spacing */}
+                <div className="space-y-16">
                     {/* Panel 2: Stats */}
                     {renderStats()}
 
                     {/* Panel 3: Capabilities */}
-                    <div className="mb-6">
-                        <h3 className="text-xl font-bold mb-8 uppercase tracking-widest text-center text-gray-400">
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-blue-50/30 -z-10 blur-3xl opacity-50 rounded-full" />
+                        <h3 className="text-sm font-bold mb-10 uppercase tracking-widest text-center text-slate-400">
                             Core Capabilities
                         </h3>
                         {renderCapabilities()}
                     </div>
 
                     {/* Panel 4: Vertical Tabs (Deep Dive) */}
-                    <div className="mb-6">
+                    <div>
                         <VerticalModuleTabs data={moduleData} variant={variant} />
                     </div>
 
-                    {/* Panel 5: CTA */}
-                    <div className="text-center py-6 border-t border-gray-200 bg-slate-50 rounded-2xl">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{ctaHeadline}</h3>
-                        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Link to={ctaButtonLink}>
-                                <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90">
-                                    {ctaButtonText || "Get Started"} <ArrowRight className="ml-2 w-4 h-4" />
-                                </Button>
-                            </Link>
-                            {secondaryCtaButtonText && (
-                                <Button size="lg" variant="outline" className="rounded-full">
-                                    {secondaryCtaButtonText}
-                                </Button>
-                            )}
+                    {/* Panel 5: CTA - Integrated */}
+                    <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-8 md:p-12 text-center shadow-2xl">
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-50" />
+
+                        <div className="relative z-10 max-w-2xl mx-auto">
+                            <h3 className="text-2xl md:text-3xl font-bold mb-4">{ctaHeadline}</h3>
+                            <p className="text-slate-300 mb-8 text-lg">{ctaDescription}</p>
+
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <Link to={ctaButtonLink}>
+                                    <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 rounded-full h-12 px-8 font-semibold">
+                                        {ctaButtonText || "Get Started"} <ArrowRight className="ml-2 w-4 h-4" />
+                                    </Button>
+                                </Link>
+                                {secondaryCtaButtonText && (
+                                    <Button size="lg" variant="outline" className="border-slate-700 text-white hover:bg-slate-800 rounded-full h-12 px-8">
+                                        {secondaryCtaButtonText}
+                                    </Button>
+                                )}
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

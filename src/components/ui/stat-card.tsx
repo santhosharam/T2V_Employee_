@@ -11,16 +11,16 @@ interface StatCardProps {
 export function StatCard({ value, label, explanation, className }: StatCardProps) {
     return (
         <div className={cn(
-            "p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all",
+            "p-8 rounded-2xl glass-card transition-all duration-300 hover:shadow-xl group",
             className
         )}>
-            <div className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
+            <div className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 mb-3 tracking-tight group-hover:scale-105 transition-transform origin-left">
                 {value}
             </div>
-            <div className="text-lg font-semibold text-gray-800 mb-3">
+            <div className="text-lg font-semibold text-slate-900 mb-3">
                 {label}
             </div>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed group-hover:text-slate-900 transition-colors">
                 {explanation}
             </p>
         </div>

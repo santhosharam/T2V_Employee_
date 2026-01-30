@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Calculator, ShieldCheck, Globe, Lock } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export function HeroSection() {
     return (
@@ -9,69 +9,45 @@ export function HeroSection() {
             {/* Clean Background - AnimatedBackground provides the subtle texture */}
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-5xl mx-auto text-center space-y-6">
+                <div className="max-w-6xl mx-auto text-center relative z-10 pt-10">
 
-                    {/* Badge - Softer & Cleaner */}
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-medium text-sm mb-6" data-aos="fade-down">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-                        </span>
+                    {/* Badge - Enterprise Style */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/50 border border-blue-200 text-blue-800 font-medium text-xs uppercase tracking-wider mb-8 animate-fade-up">
+                        <span className="flex h-2 w-2 rounded-full bg-blue-600"></span>
                         AI-Native Workforce Intelligence
                     </div>
 
-                    {/* Main Title - Dark Slate Text, Subtle Gradient */}
-                    <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1]" data-aos="fade-up" data-aos-delay="100">
-                        From HR Automation to <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">
-                            Workforce Intelligence
+                    {/* Main Title - Tight & Heavy */}
+                    <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 mb-8 animate-fade-up animation-delay-200">
+                        Predict. Accelerate. <br />
+                        <span className="text-gradient-primary">
+                            Scale Your Workforce.
                         </span>
                     </h1>
 
-                    {/* Subtitle - Lighter Slate, Increased Line Height */}
-                    <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="200">
-                        Transform people operations into strategic business intelligence using <span className="text-slate-900 font-medium">autonomous AI agents</span>, <span className="text-slate-900 font-medium">knowledge graphs</span>, and <span className="text-slate-900 font-medium">predictive analytics</span>.
+                    {/* Subtitle - Readable & clean */}
+                    <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light mb-10 animate-fade-up animation-delay-200">
+                        The only AI platform that unifies people data, predicts retention risks, and automates compliance—empowering you to build world-class teams.
                     </p>
 
-                    {/* Supporting Points - Pill Style */}
-                    <div className="flex flex-wrap justify-center gap-3 pt-2 pb-8" data-aos="fade-up" data-aos-delay="300">
-                        {[
-                            "AI Knowledge Acceleration",
-                            "Predictive Intelligence",
-                            "Recruiment & Compliance",
-                            "Enterprise Security"
-                        ].map((point, i) => (
-                            <div key={i} className="flex items-center gap-2 text-sm font-medium text-slate-600 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm">
-                                <ShieldCheck className="w-4 h-4 text-blue-600" />
-                                {point}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* CTAs - Refined Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-                        <Button size="lg" className="h-14 px-8 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-lg shadow-slate-200 transition-all w-full sm:w-auto rounded-xl">
-                            Request a Demo <ArrowRight className="ml-2 h-5 w-5" />
+                    {/* CTAs - Enterprise Buttons */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16 animate-fade-up animation-delay-200">
+                        <Button size="lg" className="h-14 px-10 text-lg btn-primary-gradient shadow-xl hover:shadow-2xl transition-all w-full sm:w-auto">
+                            Book a Demo
                         </Button>
 
-                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 w-full sm:w-auto rounded-xl bg-white">
-                            <Calculator className="mr-2 h-5 w-5" /> Calculate ROI
+                        <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 w-full sm:w-auto bg-white/50 backdrop-blur-sm shadow-sm">
+                            Start Free Trial
                         </Button>
                     </div>
 
-                    {/* Trust Indicators - Minimalist */}
-                    <div className="pt-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-slate-500 border-t border-slate-100 mt-10 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="500">
-                        <div className="flex items-center justify-center gap-3">
-                            <Globe className="w-5 h-5 text-slate-400" />
-                            Built for global, regulated enterprises
-                        </div>
-                        <div className="flex items-center justify-center gap-3">
-                            <Globe className="w-5 h-5 text-slate-400" />
-                            Multi-country, multi-jurisdiction ready
-                        </div>
-                        <div className="flex items-center justify-center gap-3">
-                            <Lock className="w-5 h-5 text-slate-400" />
-                            SOC2 Type II & GDPR Compliant
+                    {/* Trust Signals - Integrated subtly */}
+                    <div className="border-t border-slate-200/60 pt-10 max-w-4xl mx-auto animate-fade-up animation-delay-400">
+                        <p className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">Trusted by Forward-Thinking Enterprises</p>
+                        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0">
+                            {["MICROSOFT", "IBM", "SIEMENS", "ORACLE", "DELOITTE"].map((name, i) => (
+                                <span key={i} className="text-lg md:text-xl font-bold text-slate-400 cursor-default">{name}</span>
+                            ))}
                         </div>
                     </div>
                 </div>

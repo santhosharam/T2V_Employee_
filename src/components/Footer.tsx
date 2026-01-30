@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Facebook, Twitter, Linkedin, Mail, MapPin } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 
 export function Footer() {
     return (
@@ -57,6 +57,7 @@ export function Footer() {
                         <h4 className="font-semibold text-white mb-6">Company</h4>
                         <ul className="space-y-3 text-sm text-slate-400">
                             <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+
                             <li><Link to="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
                             <li><Link to="/partners" className="hover:text-primary transition-colors">Partners</Link></li>
                             <li><Link to="/resources" className="hover:text-primary transition-colors">Resources</Link></li>
@@ -66,31 +67,107 @@ export function Footer() {
                 </div>
 
                 {/* Contact Info Footer Grid */}
-                <div className="grid md:grid-cols-3 gap-8 py-8 border-t border-slate-800 mb-8">
-                    <div className="flex gap-3">
-                        <Mail className="h-5 w-5 text-primary shrink-0 mt-1" />
-                        <div>
-                            <h5 className="font-medium text-white mb-1">Email Us</h5>
-                            <p className="text-sm text-slate-400">info@trustgrid.com</p>
-                            <p className="text-sm text-slate-400">cs@trustflow.in</p>
-                        </div>
-                    </div>
+                {/* Contact Info Footer Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8 border-t border-slate-800 mb-8">
+                    {/* US Office */}
                     <div className="flex gap-3">
                         <MapPin className="h-5 w-5 text-primary shrink-0 mt-1" />
                         <div>
-                            <h5 className="font-medium text-white mb-1">Mumbai</h5>
-                            <p className="text-sm text-slate-400 leading-relaxed">
-                                WeWork, Raheja Platinum, Sag Baug, Marol, Andheri East, Mumbai 400059
+                            <h5 className="font-medium text-white mb-1">US Office</h5>
+                            <p className="text-sm text-slate-400 leading-relaxed mb-2">
+                                501 E Kennedy Blvd Suite 1400,<br />
+                                Tampa, FL 33602, United States
                             </p>
+                            <div className="space-y-1">
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Mail className="h-3 w-3" />
+                                    <span>connect@trustgrid.ai</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Phone className="h-3 w-3" />
+                                    <span>+91 9513288612</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    {/* Singapore Office */}
                     <div className="flex gap-3">
                         <MapPin className="h-5 w-5 text-primary shrink-0 mt-1" />
                         <div>
-                            <h5 className="font-medium text-white mb-1">Bangalore</h5>
-                            <p className="text-sm text-slate-400 leading-relaxed">
-                                WeWork, 13th floor, Tin Factory, Old Madras Rd, Bengaluru 560016
+                            <h5 className="font-medium text-white mb-1">Singapore Office</h5>
+                            <p className="text-sm text-slate-400 leading-relaxed mb-2">
+                                5 Temasek Boulevard, 17th Floor,<br />
+                                Singapore 038985
                             </p>
+                            <div className="space-y-1">
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Mail className="h-3 w-3" />
+                                    <span>connect@trustgrid.ai</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Phone className="h-3 w-3" />
+                                    <span>+65 6050 5235</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* India Office */}
+                    <div className="flex gap-3">
+                        <MapPin className="h-5 w-5 text-primary shrink-0 mt-1" />
+                        <div>
+                            <h5 className="font-medium text-white mb-1">India Office</h5>
+                            <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">TrustGrid.AI Innovation Pvt Ltd</p>
+                            <p className="text-sm text-slate-400 leading-relaxed">
+                                Suite: 32, 235, Binnamangala, 2nd Floor,<br />
+                                13th Cross Road, Indira Nagar 2nd Stage,<br />
+                                Hoysala Nagar, Bengaluru – 560038, India
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Mumbai Office */}
+                    <div className="flex gap-3">
+                        <MapPin className="h-5 w-5 text-primary shrink-0 mt-1" />
+                        <div>
+                            <h5 className="font-medium text-white mb-1">Mumbai Office</h5>
+                            <p className="text-sm text-slate-400 leading-relaxed mb-2">
+                                WeWork, Raheja Platinum, Sag Baug,<br />
+                                Marol, Andheri East, Mumbai 400059
+                            </p>
+                            <div className="space-y-1">
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Mail className="h-3 w-3" />
+                                    <span>cs@trustflow.in</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Phone className="h-3 w-3" />
+                                    <span>+91 9513088612</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Bangalore Office */}
+                    <div className="flex gap-3">
+                        <MapPin className="h-5 w-5 text-primary shrink-0 mt-1" />
+                        <div>
+                            <h5 className="font-medium text-white mb-1">Bangalore Office</h5>
+                            <p className="text-sm text-slate-400 leading-relaxed mb-2">
+                                WeWork, 13th floor, Tin Factory,<br />
+                                Old Madras Rd, Bengaluru 560016
+                            </p>
+                            <div className="space-y-1">
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Mail className="h-3 w-3" />
+                                    <span>cs@trustflow.in</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-400">
+                                    <Phone className="h-3 w-3" />
+                                    <span>+91 9513088612</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
