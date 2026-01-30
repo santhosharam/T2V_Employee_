@@ -203,9 +203,7 @@ export function Navbar() {
                     </nav>
                 </div>
                 <div className="hidden lg:flex items-center gap-4">
-                    <Link to="/let-us-connect">
-                        <Button variant="outline" size="sm" className="shadow-sm">Let's Connect</Button>
-                    </Link>
+
                     <Link to="/request-demo">
                         <Button size="sm" className="btn-primary-gradient text-white shadow-md border-0">Request Demo</Button>
                     </Link>
@@ -234,7 +232,7 @@ export function Navbar() {
                         <Link to="/industries" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Industries</Link>
                         <Link to="/partners" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Partnerships</Link>
                         <Link to="/resources" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Resources</Link>
-                        <Link to="/let-us-connect" className="text-sm font-medium text-foreground" onClick={() => setIsOpen(false)}>Let's Connect</Link>
+
 
                         <Link to="/request-demo">
                             <Button size="sm" className="justify-start w-full btn-primary-gradient text-white">Request Demo</Button>
