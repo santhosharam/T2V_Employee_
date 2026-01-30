@@ -14,9 +14,9 @@ export function Navbar() {
                     <img src="/trustgrid_logo.png" alt="TrustGrid.AI" className="h-10 w-auto" />
                 </Link>
                 <div className="hidden lg:flex items-center gap-8">
-                    <nav className="flex items-center gap-6 text-sm font-medium text-foreground/80">
+                    <nav className="flex items-center gap-4 text-[13px] font-medium text-foreground/80 xl:gap-6 xl:text-sm">
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/platform" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Platform <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/platform" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Platform <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-10 w-[600px] bg-card border border-border shadow-xl rounded-xl p-6 hidden group-hover:grid grid-cols-2 gap-x-8 gap-y-4 animate-in fade-in zoom-in-95 duration-200">
 
                                 <div className="space-y-4">
@@ -115,7 +115,7 @@ export function Navbar() {
 
 
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/who-its-for" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Who It's For <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/who-its-for" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Personas <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/who-its-for#hr-leaders" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">HR & People Leaders</Link>
@@ -130,7 +130,7 @@ export function Navbar() {
 
 
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/outcomes-roi" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Outcomes & ROI <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/outcomes-roi" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">ROI <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/outcomes-roi#productivity" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Productivity Impact</Link>
@@ -143,7 +143,7 @@ export function Navbar() {
                         </div>
 
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/solutions" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Solutions <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/solutions" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Solutions <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/solutions#workforce-intelligence" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Workforce Intelligence</Link>
@@ -157,7 +157,7 @@ export function Navbar() {
                         </div>
 
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/industries" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Industries <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/industries" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Industries <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/industries#healthcare-life-sciences" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Healthcare & Life Sciences</Link>
@@ -171,7 +171,7 @@ export function Navbar() {
                         </div>
 
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/partners" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Partnerships <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/partners" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Partners <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/partners#technology-partners" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Technology Partners</Link>
@@ -183,8 +183,10 @@ export function Navbar() {
                             </div>
                         </div>
 
+
+
                         <div className="group relative cursor-pointer md:py-4">
-                            <Link to="/resources" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Resources <ChevronDown className="h-4 w-4" /></Link>
+                            <Link to="/resources" className="flex items-center gap-1 text-foreground/90 group-hover:text-primary transition-colors">Resources <ChevronDown className="h-3 w-3" /></Link>
                             <div className="absolute top-full -left-4 w-[280px] bg-card border border-border shadow-xl rounded-xl p-4 hidden group-hover:block animate-in fade-in zoom-in-95 duration-200">
                                 <div className="space-y-1">
                                     <Link to="/resources#executive-insights" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted/50 rounded-lg transition-colors">Executive Insights</Link>
@@ -196,7 +198,7 @@ export function Navbar() {
                             </div>
                         </div>
 
-                        <Link to="/about" className="hover:text-primary text-foreground/90 transition-colors">About Us</Link>
+                        <Link to="/about" className="hover:text-primary text-foreground/90 transition-colors">About</Link>
 
                     </nav>
                 </div>

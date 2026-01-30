@@ -1,5 +1,8 @@
 
 import { HeroSection } from "@/components/HeroSection"
+import { TrustIndicators } from "@/components/TrustIndicators"
+import { HowItWorks } from "@/components/HowItWorks"
+import { UseCasePreview } from "@/components/UseCasePreview"
 import { FinalCTA } from "@/components/FinalCTA"
 import { PlatformModuleSection } from "@/components/PlatformModuleSection"
 import { homeSections } from "@/lib/home-sections-data"
@@ -8,6 +11,7 @@ export default function Home() {
     return (
         <>
             <HeroSection />
+            <TrustIndicators />
 
             {/* SECTION A: T2V CoreAI */}
             <PlatformModuleSection
@@ -15,6 +19,8 @@ export default function Home() {
                 {...homeSections.coreAI}
                 variant="default"
             />
+
+            <HowItWorks />
 
             {/* SECTION B: Knowledge & Learning */}
             <PlatformModuleSection
@@ -36,6 +42,8 @@ export default function Home() {
                 {...homeSections.complianceAI}
                 variant="stacked"
             />
+
+            <UseCasePreview />
 
             {/* SECTION E: Solutions Overview */}
             <PlatformModuleSection

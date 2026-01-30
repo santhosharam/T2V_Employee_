@@ -20,6 +20,13 @@ const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const WhoItsFor = lazy(() => import("@/pages/WhoItsFor"));
 const Careers = lazy(() => import("@/pages/Careers"));
 
+const ProductOverview = lazy(() => import("@/pages/ProductOverview"));
+const CaseStudies = lazy(() => import("@/pages/CaseStudies"));
+const FeatureAnalytics = lazy(() => import("@/pages/FeatureAnalytics"));
+const FeaturePerformance = lazy(() => import("@/pages/FeaturePerformance"));
+const FeatureProductivity = lazy(() => import("@/pages/FeatureProductivity"));
+const FeatureReports = lazy(() => import("@/pages/FeatureReports"));
+
 // Loading fallback component
 const PageLoader = () => (
   <div className="flex h-[50vh] w-full items-center justify-center">
@@ -29,17 +36,20 @@ const PageLoader = () => (
 
 import { TrafficTracker } from "@/components/TrafficTracker";
 import { ScrollToHash } from "@/components/ScrollToHash";
+import { CookieConsent } from "@/components/CookieConsent";
 
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToHash />
       <TrafficTracker />
+      <CookieConsent />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/platform" element={<Platform />} />
+            <Route path="/product-overview" element={<ProductOverview />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/partners" element={<Partners />} />
@@ -52,6 +62,15 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/who-its-for" element={<WhoItsFor />} />
             <Route path="/careers" element={<Careers />} />
+
+
+            <Route path="/case-studies" element={<CaseStudies />} />
+
+            <Route path="/features/analytics" element={<FeatureAnalytics />} />
+            <Route path="/features/performance" element={<FeaturePerformance />} />
+            <Route path="/features/productivity" element={<FeatureProductivity />} />
+            <Route path="/features/reports" element={<FeatureReports />} />
+
             <Route path="*" element={<Placeholder title="404 - Page Not Found" />} />
           </Route>
         </Routes>
